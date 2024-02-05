@@ -3,6 +3,7 @@ from queue import Queue
 
 plotting_queue = Queue()
 
+
 def plotter():
     plt.ion()
     fig, ax = plt.subplots()
@@ -18,6 +19,7 @@ def plotter():
             plt.draw()
             plt.pause(0.1)
         plt.pause(0.1)  # Small pause to prevent busy waiting.
+
 
 def update_data(data: bytes):
     plotting_queue.put(int(data.decode('utf-8')))
